@@ -13,13 +13,14 @@ const NAV_LIST = [
     name: 'Test1',
   },
   {
-    path: '/test2',
-    name: 'Test2',
+    path: '/animate',
+    name: 'Animate'
   },
   {
     path: '/error',
     name: 'Error',
-  }
+  },
+
 ]
 export default {
   NAV_LIST,

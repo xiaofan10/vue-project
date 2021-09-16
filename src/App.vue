@@ -8,6 +8,7 @@
         <!-- 这里是会被缓存的视图组件 -->
         <router-view v-if="$route.meta.keepAlive" />
       </keep-alive>
+      <router-view v-if="!$route.meta.keepAlive" />
     </div>
 <!--    <div class="Slider">-->
 <!--      <Slider />-->

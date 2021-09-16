@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>揭开vue提供的animate原理</title>
+  <style>
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity 5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <button id="start">按钮</button>
+  <script>
+    var sta = document.getElementById('start')
+    var isShow = false
+    var elText = document.createElement('div')
+    elText.innerText = 'HelloWorld'
+    elText.addEventListener('transitionend', function() {
+      elText.removeAttribute('class')
+      if(!isShow) {
+        elText.remove()
+      }
+      console.log(111)
+    })
+    sta.addEventListener('click', function () {
+      elText.removeAttribute('class')
+      isShow = !isShow
+      if(isShow) {
+        elText.classList.add('fade-enter', 'fade-enter-active')
+        document.body.append(elText)
+        setTimeout(function(){
+          elText.classList.remove('fade-enter')
+        },.1)
+      } else {
+        elText.classList.add( 'fade-leave-active')
+        elText.classList.add('fade-leave-to')
+      }
+    })
+
+  </script>
+</body>
+</html>

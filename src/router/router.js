@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../pages/Home'
+import Animate from '../pages/Animate'
+
 // 动态导入 使用webpack 提供的方法
 
 /**
@@ -25,9 +27,9 @@ const routes = [
     component: Home,
   },
   {
-    path: '/test2',
-    name: 'Test2',
-    component: Home,
+    path: '/animate',
+    name: 'Animate',
+    component: Animate,
   },
   {
     path: '/error',
