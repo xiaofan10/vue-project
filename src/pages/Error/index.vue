@@ -1,6 +1,11 @@
 <template>
   <div class="error-content">
-    The path is error!
+    <div>
+      The path is error!
+      <p>
+        {{Math.ceil(Math.random()*1000)}}
+      </p>
+    </div>
   </div>
 </template>
 

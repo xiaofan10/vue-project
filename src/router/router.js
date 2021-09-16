@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../pages/Home'
-import Error from '../pages/Error'
 // 动态导入 使用webpack 提供的方法
+
+/**
+ * 动态加载组件
+ */
 
 Vue.use(VueRouter)
 
@@ -29,12 +32,21 @@ const routes = [
   {
     path: '/error',
     name: 'Error',
-    component: Error,
+    component: () => import('../pages/Error'), // 点击菜单时加载组件,如果不加路由换成，每次点击都会初始化
+    meta: {
+      keepAlive: true // 路由中需要被缓存的组件,配合下面配置使用
+      /**
+       *  <keep-alive>
+       <!-- 这里是会被缓存的视图组件 -->
+       <router-view v-if="$route.meta.keepAlive" />
+       </keep-alive>
+       */
+    },
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  linkActiveClass: 'active'
 })
-console.log(router)
 export default router

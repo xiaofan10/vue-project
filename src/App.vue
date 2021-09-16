@@ -4,7 +4,10 @@
       <Menu :data-source="NAV_LIST" />
     </div>
     <div class="app-layout-right">
-      <router-view></router-view>
+      <keep-alive>
+        <!-- 这里是会被缓存的视图组件 -->
+        <router-view v-if="$route.meta.keepAlive" />
+      </keep-alive>
     </div>
 <!--    <div class="Slider">-->
 <!--      <Slider />-->

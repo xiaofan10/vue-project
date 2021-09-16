@@ -39,17 +39,18 @@ export default {
     }
   },
   mounted() {
-    if(this.$route) {
-      this.dataSource.forEach((item, i) => {
-        if(this.$route.path === item.path) {
-          this.cur = i
-        }
-      })
-    }
+    // if(this.$route) {
+    //   this.dataSource.forEach((item, i) => {
+    //     if(this.$route.path === item.path) {
+    //       this.cur = i
+    //     }
+    //   })
+    // }
   },
   methods: {
     handleClick(i) {
-      this.cur = i
+      console.log(i)
+      // this.cur = i
     }
   }
 }
